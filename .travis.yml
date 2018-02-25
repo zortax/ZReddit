@@ -5,7 +5,7 @@ deploy:
   provider: releases
   prerelease: true
   api_key: $API_KEY
-  file: ./target/ZReddit.jar
+  file: ./target/ZReddit-jar-with-dependencies.jar
   skip_cleanup: true
   on:
     tags: true
