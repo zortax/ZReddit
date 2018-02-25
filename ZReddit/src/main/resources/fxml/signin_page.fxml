@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.*?>
 
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" styleClass="parent" stylesheets="@../styles/style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.zortax.zreddit.SigninPageController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" styleClass="parent" stylesheets="@../styles/style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.zortax.zreddit.controller.SigninController">
    <children>
       <HBox alignment="CENTER" layoutX="67.0" layoutY="20.0" minWidth="450.0" prefHeight="360.0" prefWidth="450.0" AnchorPane.bottomAnchor="20.0" AnchorPane.topAnchor="20.0">
          <children>

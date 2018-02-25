@@ -36,14 +36,10 @@
     </build>
 
     <repositories>
-        <!--<repository>
+        <repository>
             <id>jitpack.io</id>
             <url>https://jitpack.io</url>
         </repository>
-        <repository>
-            <id>central</id>
-            <url>http://central.maven.org/maven2</url>
-        </repository>-->
         <repository>
             <id>jcenter</id>
             <url>https://jcenter.bintray.com/</url>
@@ -79,19 +75,19 @@
             <scope>provided</scope>
         </dependency>-->
 
-        <dependency>
+        <!--<dependency>
             <groupId>net.dean.jraw</groupId>
             <artifactId>moshi-deeply-nested</artifactId>
             <optional>true</optional>
             <version>RELEASE</version>
-        </dependency>
+        </dependency>-->
 
-        <!--<dependency>
+        <dependency>
             <groupId>com.github.mattbdean</groupId>
             <artifactId>JRAW</artifactId>
-            <version>RELEASE</version>
+            <version>2aa33f4d83</version>
             <scope>provided</scope>
-        </dependency>-->
+        </dependency>
 
     </dependencies>
 
