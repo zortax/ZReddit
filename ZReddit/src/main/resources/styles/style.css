@@ -1,0 +1,231 @@
+.parent{
+    -fx-background-color: #2A2E37;
+}
+.sidebar{
+    -fx-background-color: #373E48;
+}
+.buttons{
+    -fx-background-color: transparent;    
+}
+.buttons:hover {
+    -fx-background-color: #6684ff, #3E4651;
+    /*-fx-border-color: #1FD6D1;
+    -fx-border-style: solid;
+    -fx-border-width: 0px 0px 0px 3px;*/
+    -fx-background-insets: 0, 0 0 0 2;
+}
+
+.selected-buttons {
+    -fx-background-color: #6684ff, #3E4651;
+    /*-fx-border-color: #1FD6D1;
+    -fx-border-style: solid;
+    -fx-border-width: 0px 0px 0px 3px;*/
+    -fx-background-insets: 0, 0 0 0 2;
+}
+
+.reddit-post {
+    -fx-background-color: #373E48, #3E4651;
+    -fx-background-radius: 4;
+}
+
+.reddit-citation {
+    -fx-background-color: #3E4651, #373E48;
+    -fx-background-radius: 4;
+}
+
+
+.setting{
+    -fx-fill:grey;
+}
+.setting:hover{
+    -fx-fill:white;
+}
+
+.eye{
+    -fx-background-color: #1FD6D1;
+}
+
+.eye:hover{
+    -fx-background-color: #1FD6D1;
+}
+.roundLabel{
+    -fx-background-color: transparent;
+    -fx-background-radius: 100%;
+    -fx-border-color: #999999;
+    -fx-border-radius: 100%;
+    -fx-border-width: 1px;
+    -fx-border-style: solid;
+}
+.roundLabel:hover{
+    -fx-background-color: transparent;
+    -fx-background-radius: 100%;
+    -fx-border-color: #999999;
+    -fx-border-radius: 100%;
+    -fx-border-width: 2px;
+    -fx-border-style: solid;
+}
+.roundLabel:selected{
+    -fx-background-color: transparent;
+    -fx-background-radius: 100%;
+    -fx-border-color: #999999;
+    -fx-border-radius: 100%;
+    -fx-border-width: 2px;
+    -fx-border-style: solid;
+}
+
+.box{
+    -fx-background-color: #2A2E37;
+    -fx-opacity:0.7;
+}
+.box:hover{
+    -fx-background-color: #373E48;
+    -fx-opacity:1;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+    -fx-border-color: #1FD6D1;
+    -fx-border-style: solid;    
+}
+
+.progressbar{
+    -fx-background-color: transparent;
+    -fx-background-radius: 0px;
+}
+
+.chart {
+    -fx-padding: 10px;
+    /*-fx-background-image: url("icon.png");*/   
+}
+.chart-content {
+    -fx-padding: 30px;    
+}
+ 
+.chart-title {
+  -fx-text-fill: #4682b4;
+  -fx-font-size: 1.6em;
+}
+ 
+.axis-label {
+    -fx-text-fill: #ffffff;
+}
+
+.chart-legend {
+   -fx-background-color:  transparent;
+   -fx-padding: 20px;
+}
+ 
+.chart-legend-item-symbol{
+    -fx-display:false;
+   -fx-background-radius: 0;
+}
+ 
+.chart-legend-item{
+    -fx-text-fill: #999999;
+}
+ 
+.chart-plot-background {
+    -fx-background-color: #2A2E37;
+}
+.chart-vertical-grid-lines {
+    -fx-stroke: #2A2E37;
+}
+.chart-horizontal-grid-lines {
+    -fx-stroke: #2A2E37;
+}
+.chart-alternative-row-fill {
+    -fx-fill: transparent;
+    -fx-stroke: transparent;
+    -fx-stroke-width: 0;
+}
+
+
+/** CSS **/
+.mylistview{
+    -fx-border-color: transparent;
+    -fx-background-insets: 0;
+}
+
+.mylistview .scroll-bar:horizontal ,
+.mylistview  .scroll-bar:vertical{
+    -fx-background-color:transparent;
+
+}
+
+.mylistview .scroll-bar:horizontal .track,
+.mylistview .scroll-bar:vertical .track{
+    -fx-background-color:transparent;
+    -fx-border-color:transparent;
+    -fx-background-radius: 0em;
+    -fx-border-radius:2em;
+}
+
+.mylistview .scroll-bar:horizontal .increment-button ,
+.mylistview .scroll-bar:horizontal .decrement-button {
+    -fx-background-color:transparent;
+    -fx-background-radius: 0em;
+    -fx-padding:0 0 10 0;
+}
+
+.mylistview .scroll-bar:vertical .increment-button ,
+.mylistview .scroll-bar:vertical .decrement-button {
+    -fx-background-color:transparent;
+    -fx-background-radius: 0em;
+    -fx-padding:0 10 0 0;
+}
+
+.mylistview  .scroll-bar .increment-arrow,
+.mylistview  .scroll-bar .decrement-arrow
+{
+    -fx-shape: " ";
+    -fx-padding:0;
+}
+
+.mylistview .scroll-bar:horizontal .thumb,
+.mylistview .scroll-bar:vertical .thumb {
+    -fx-background-color:derive(black,90%);
+    -fx-background-insets: 2, 0, 0;
+    -fx-background-radius: 2em;
+
+
+}
+
+.mylistview .scroll-bar:horizontal:hover .track ,
+.mylistview .scroll-bar:horizontal:pressed .track ,
+.mylistview .scroll-bar:vertical:hover .track,
+.mylistview .scroll-bar:vertical:pressed .track{
+    -fx-background-color: transparent;
+    /*-fx-background-color: derive(#434343,70%);*/
+    -fx-opacity: 1;
+    -fx-border-color:derive(gray,80%);
+    -fx-background-radius: 0em;
+
+}
+
+.mylistview .scroll-bar .thumb:hover,
+.mylistview .scroll-bar .thumb:pressed{
+    -fx-background-color: derive(black,50%);
+}
+.mylistview .increment-button:hover ,.mylistview .decrement-button:hover {
+    -fx-background-color:derive(gray,100%);
+    -fx-border-color:derive(gray,80%);
+    -fx-padding:10px;
+}
+
+.mylistview .list-cell:filled:selected:focused, .list-cell:filled:selected {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+}
+
+.mylistview .list-cell:odd {
+    -fx-cell-hover-color: transparent;
+    -fx-background-color: transparent;
+}
+
+.mylistview .list-cell:even {
+    -fx-cell-hover-color: transparent;
+    -fx-background-color: transparent;
+}
+
+.mylistview .list-cell:filled:hover {
+    -fx-cell-hover-color: transparent;
+    -fx-text-fill: white;
+}

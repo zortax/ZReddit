@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefWidth="650.0" styleClass="parent" stylesheets="@../styles/style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.zortax.zreddit.PostController">
+   <children>
+      <AnchorPane layoutX="200.0" layoutY="100.0" prefWidth="200.0" styleClass="reddit-post" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+         <children>
+            <VBox prefWidth="580.0" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+               <children>
+                  <HBox alignment="CENTER_LEFT" minHeight="25.0" prefWidth="574.0">
+                     <children>
+                        <Label fx:id="postTitle" maxWidth="418.0" text="submission title" textFill="WHITE" wrapText="true">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <Pane prefHeight="25.0" prefWidth="10.0" />
+                        <Label alignment="BOTTOM_LEFT" prefHeight="15.0" text="Posted by " textFill="#757575" wrapText="true">
+                           <font>
+                              <Font size="9.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="userLink" alignment="BOTTOM_LEFT" prefHeight="15.0" text="/u/user" textFill="#757575" wrapText="true">
+                           <font>
+                              <Font size="9.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="BOTTOM_LEFT" layoutX="138.0" layoutY="15.0" prefHeight="15.0" text=" in " textFill="#757575" wrapText="true">
+                           <font>
+                              <Font size="9.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="subredditLink" alignment="BOTTOM_LEFT" layoutX="170.0" layoutY="15.0" prefHeight="15.0" text="/r/subreddit" textFill="#757575" wrapText="true">
+                           <font>
+                              <Font size="9.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <Pane minHeight="10.0" prefHeight="10.0" prefWidth="560.0" />
+                  <AnchorPane fx:id="citationBackground" prefWidth="560.0" styleClass="reddit-citation" VBox.vgrow="ALWAYS">
+                     <children>
+                        <Text fx:id="citationText" fill="#d3d2d2" layoutX="14.0" layoutY="14.0" strokeType="OUTSIDE" strokeWidth="0.0" text="citated text" wrappingWidth="597.7294921875" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="8.0">
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </AnchorPane>
+                  <HBox fx:id="linkPane" alignment="CENTER" prefWidth="560.0">
+                     <children>
+                        <Label text="&lt;link&gt;" textFill="WHITE" />
+                     </children>
+                  </HBox>
+                  <HBox fx:id="mediaPane" alignment="CENTER" prefWidth="560.0">
+                     <children>
+                        <Label text="&lt;image/gif/video&gt;" textFill="WHITE" />
+                     </children>
+                  </HBox>
+                  <VBox alignment="BOTTOM_LEFT" prefWidth="560.0" VBox.vgrow="ALWAYS">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" minHeight="30.0" prefHeight="30.0" prefWidth="560.0" VBox.vgrow="NEVER">
+                           <children>
+                              <HBox alignment="CENTER" prefHeight="30.0" prefWidth="25.0">
+                                 <children>
+                                    <ImageView fx:id="upvoteImage" fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../icons/up.png" />
+                                       </image>
+                                       <effect>
+                                          <ColorAdjust brightness="0.41" contrast="-1.0" />
+                                       </effect>
+                                    </ImageView>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="30.0" prefWidth="25.0">
+                                 <children>
+                                    <ImageView fx:id="downvoteImage" fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                       <effect>
+                                          <ColorAdjust brightness="0.41" contrast="-1.0" />
+                                       </effect>
+                                       <image>
+                                          <Image url="@../icons/down.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </HBox>
+                              <Label fx:id="points" text="67" textFill="WHITE">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </Label>
+                              <HBox alignment="CENTER" layoutX="35.0" layoutY="10.0" prefHeight="30.0" prefWidth="25.0">
+                                 <children>
+                                    <ImageView fx:id="commentsImage" fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                       <effect>
+                                          <ColorAdjust brightness="0.41" contrast="-1.0" />
+                                       </effect>
+                                       <image>
+                                          <Image url="@../icons/comments.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </HBox>
+                              <Label fx:id="commentCount" layoutX="35.0" layoutY="20.0" text="7" textFill="WHITE">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                              </Label>
+                              <HBox alignment="CENTER" layoutX="60.0" layoutY="10.0" prefHeight="30.0" prefWidth="25.0">
+                                 <children>
+                                    <ImageView fx:id="optionsImage" fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                       <effect>
+                                          <ColorAdjust brightness="0.41" contrast="-1.0" />
+                                       </effect>
+                                       <image>
+                                          <Image url="@../icons/dots.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

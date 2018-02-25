@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>de.zortax.zreddit</groupId>
+    <artifactId>ZReddit</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <kotlin.version>1.2.21</kotlin.version>
+        <okhttp.version>RELEASE</okhttp.version>
+        <moshi.version>RELEASE</moshi.version>
+        <okio.version>RELEASE</okio.version>
+        <jdk.version>1.8</jdk.version>
+    </properties>
+
+    <build>
+        <finalName>ZReddit</finalName>
+        <plugins>
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>de.zortax.zreddit.Main</mainClass>
+                        </manifest>
+                    </archive>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <repositories>
+        <!--<repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+        </repository>
+        <repository>
+            <id>central</id>
+            <url>http://central.maven.org/maven2</url>
+        </repository>-->
+        <repository>
+            <id>jcenter</id>
+            <url>https://jcenter.bintray.com/</url>
+        </repository>
+    </repositories>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>org.jetbrains.kotlin</groupId>
+            <artifactId>kotlin-stdlib</artifactId>
+            <version>${kotlin.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.squareup.okhttp3</groupId>
+            <artifactId>okhttp</artifactId>
+            <version>${okio.version}</version>
+        </dependency>
+
+        <!--<dependency>
+            <groupId>com.suqadup.moshi</groupId>
+            <artifactId>moshi</artifactId>
+            <version>${moshi.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.squadup.okio</groupId>
+            <artifactId>okio</artifactId>
+            <version>${okio.version}</version>
+            <scope>provided</scope>
+        </dependency>-->
+
+        <dependency>
+            <groupId>net.dean.jraw</groupId>
+            <artifactId>moshi-deeply-nested</artifactId>
+            <optional>true</optional>
+            <version>RELEASE</version>
+        </dependency>
+
+        <!--<dependency>
+            <groupId>com.github.mattbdean</groupId>
+            <artifactId>JRAW</artifactId>
+            <version>RELEASE</version>
+            <scope>provided</scope>
+        </dependency>-->
+
+    </dependencies>
+
+</project>
