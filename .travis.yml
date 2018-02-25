@@ -1,0 +1,11 @@
+language: java
+jdk: oraclejdk8
+script: sh build.sh
+deploy:
+  provider: releases
+  prerelease: true
+  api_key: $API_KEY
+  file: ./target/ZReddit.jar
+  skip_cleanup: true
+  on:
+    tags: true
