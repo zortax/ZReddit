@@ -1,5 +1,6 @@
 package de.zortax.zreddit.controller;// Created by leo on 25.02.18
 
+import de.zortax.zreddit.animations.RippleHandler;
 import javafx.fxml.FXML;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -32,6 +33,15 @@ public class MainController {
 
     @FXML
     public void initialize() {
+
+        // add ripple effect on click
+        new RippleHandler(homeStack);
+        new RippleHandler(gotoStack);
+        new RippleHandler(searchStack);
+        new RippleHandler(messagesStack);
+        new RippleHandler(settingsStack);
+
+
 
     }
 

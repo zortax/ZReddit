@@ -21,7 +21,7 @@ public class RippleHandler implements EventHandler<MouseEvent> {
     private final Timeline scaleRippleTimeline;
     private Pane box;
 
-    RippleHandler(Pane box) {
+    public RippleHandler(Pane box) {
         this.box = box;
         circleRipple = new Circle(0.1, rippleColor);
         circleRipple.setOpacity(0.0);
