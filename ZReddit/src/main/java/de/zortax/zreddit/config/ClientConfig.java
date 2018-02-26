@@ -4,6 +4,6 @@ import de.zortax.pra.network.config.Config;
 
 public class ClientConfig extends Config {
 
-
+    public String language = "default";
 
 }
