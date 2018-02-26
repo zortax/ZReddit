@@ -3,6 +3,7 @@ package de.zortax.zreddit.controller;// Created by leo on 25.02.18
 import de.zortax.pra.network.event.EventHandler;
 import de.zortax.zreddit.Main;
 import de.zortax.zreddit.events.TabSelectedEvent;
+import de.zortax.zreddit.events.UIReloadEvent;
 import de.zortax.zreddit.reddit.RedditState;
 import javafx.fxml.FXML;
 import javafx.scene.layout.AnchorPane;
@@ -60,6 +61,9 @@ public class MainController {
         }
     }
 
-
+    @EventHandler
+    public void onUIReload(UIReloadEvent event) {
+        reload();
+    }
 
 }

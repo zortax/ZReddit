@@ -58,7 +58,7 @@ public class Main extends Application {
         return dsp;
     }
 
-    public ClientConfig getConfig() {
+    public static ClientConfig getConfig() {
         return config;
     }
 
@@ -68,6 +68,10 @@ public class Main extends Application {
 
     public static RedditManager getRedditManager() {
         return redditManager;
+    }
+
+    public static String getMessage(String key, String... vals) {
+        return dsp.getMessage(config.language, key, (Object[]) vals);
     }
 
 }

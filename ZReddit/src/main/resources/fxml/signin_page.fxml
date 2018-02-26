@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.web.*?>
+<?import com.jfoenix.controls.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
@@ -7,22 +9,27 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" styleClass="parent" stylesheets="@../styles/style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.zortax.zreddit.controller.SigninController">
    <children>
-      <HBox alignment="CENTER" layoutX="67.0" layoutY="20.0" minWidth="450.0" prefHeight="360.0" prefWidth="450.0" AnchorPane.bottomAnchor="20.0" AnchorPane.topAnchor="20.0">
+      <HBox alignment="CENTER_LEFT" layoutX="14.0" layoutY="20.0" minWidth="450.0" prefHeight="62.0" prefWidth="545.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="20.0">
          <children>
-            <VBox prefHeight="360.0" prefWidth="460.0">
+            <VBox alignment="CENTER_LEFT" prefHeight="312.0">
                <children>
-                  <Label text="Welcome to ZReddit" textFill="WHITE">
+                  <Label fx:id="title" text="zreddit.ui.signin.title" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="17.0" />
                      </font>
                   </Label>
-                  <Label text="Sign in to get started!" textFill="#b5b5b5" />
+                  <Label fx:id="prompt" text="zreddit.ui.signin.need_authentication" textFill="#b5b5b5" />
                </children>
             </VBox>
+            <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <JFXButton fx:id="reloadButton" text="zreddit.ui.signin.reload" textFill="#b9b9b9" />
+               </children>
+            </HBox>
          </children>
       </HBox>
+      <WebView fx:id="webView" layoutX="15.0" layoutY="82.0" prefHeight="304.0" prefWidth="570.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="90.0" />
    </children>
 </AnchorPane>

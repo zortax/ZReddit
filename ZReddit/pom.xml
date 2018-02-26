@@ -60,7 +60,6 @@
             <groupId>org.jetbrains.kotlin</groupId>
             <artifactId>kotlin-stdlib</artifactId>
             <version>${kotlin.version}</version>
-            <scope>provided</scope>
         </dependency>
 
         <dependency>
@@ -97,10 +96,15 @@
         </dependency>-->
 
         <dependency>
+            <groupId>com.jfoenix</groupId>
+            <artifactId>jfoenix</artifactId>
+            <version>8.0.2</version>
+        </dependency>
+
+        <dependency>
             <groupId>com.github.mattbdean</groupId>
             <artifactId>JRAW</artifactId>
             <version>2aa33f4d83</version>
-            <scope>provided</scope>
         </dependency>
 
         <dependency>

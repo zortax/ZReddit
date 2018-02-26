@@ -12,9 +12,9 @@ import java.net.URL;
 
 public enum ApplicationPage {
 
-    SIGNIN("signin_page.fxml", "signin.png", false),
+    SIGNIN("signin_page.fxml", "signin.png", false, true, false),
     SETTINGS("settings_page.fxml", "settings.png", false, false, true),
-    FRONT_PAGE("front_page.fxml", "home.png", true);
+    FRONT_PAGE("front_page.fxml", "home.png", false);
 
     public static ApplicationPage currentlySelected = null;
 
