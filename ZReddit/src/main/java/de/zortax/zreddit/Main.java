@@ -1,9 +1,11 @@
 package de.zortax.zreddit;// Created by leo on 25.02.18
 
 import de.zortax.pra.network.config.Config;
+import de.zortax.pra.network.event.EventManager;
 import de.zortax.pra.network.messages.Dispatcher;
 import de.zortax.pra.network.messages.impl.PropertiesAdapter;
 import de.zortax.zreddit.config.ClientConfig;
+import de.zortax.zreddit.reddit.RedditManager;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -20,6 +22,8 @@ public class Main extends Application {
     private static Logger logger;
     private static Dispatcher dsp;
     private static ClientConfig config;
+    private static EventManager eventManager;
+    private static RedditManager redditManager;
 
     public static void main(String[] args) {
         launch(args);
@@ -36,9 +40,34 @@ public class Main extends Application {
 
         logger.info(dsp.getMessage(config.language, "zreddit.debug.startup", ZREDDIT_VERSION));
 
+        eventManager = new EventManager();
+        redditManager = new RedditManager();
+
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/main_window.fxml"));
         primaryStage.setTitle("ZReddit - v1.0-SNAPSHOT");
         primaryStage.setScene(new Scene(root, 1100, 700));
         primaryStage.show();
+
     }
+
+    public static Logger getLogger() {
+        return logger;
+    }
+
+    public static Dispatcher getDsp() {
+        return dsp;
+    }
+
+    public ClientConfig getConfig() {
+        return config;
+    }
+
+    public static EventManager getEventManager() {
+        return eventManager;
+    }
+
+    public static RedditManager getRedditManager() {
+        return redditManager;
+    }
+
 }

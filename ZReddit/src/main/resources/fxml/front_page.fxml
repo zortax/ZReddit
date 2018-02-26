@@ -6,11 +6,11 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="450.0" prefWidth="700.0" styleClass="parent" stylesheets="@../styles/style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.zortax.zreddit.controller.FrontPageController">
+<AnchorPane prefHeight="450.0" prefWidth="800.0" styleClass="parent" stylesheets="@../styles/style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.zortax.zreddit.controller.FrontPageController">
    <children>
       <HBox alignment="CENTER" layoutX="200.0" layoutY="150.0" prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <ListView fx:id="postList" prefHeight="450.0" prefWidth="660.0" HBox.hgrow="NEVER">
+            <ListView fx:id="postList" prefHeight="450.0" prefWidth="700.0" HBox.hgrow="NEVER">
                <styleClass>
                   <String fx:value="parent" />
                   <String fx:value="mylistview" />

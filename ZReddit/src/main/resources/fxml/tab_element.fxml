@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" minHeight="40.0" prefHeight="50.0" prefWidth="60.0" styleClass="buttons" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.zortax.zreddit.controller.TabElementController">
+<children>
+    <StackPane fx:id="stackPane" prefHeight="150.0" prefWidth="200.0">
+        <children>
+            <ImageView fx:id="image" fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true" smooth="false">
+                <effect>
+                    <ColorAdjust brightness="0.41" contrast="-1.0" saturation="-1.0" />
+                </effect>
+                <image>
+                    <Image url="@../icons/home.png" />
+                </image>
+            </ImageView>
+        </children>
+    </StackPane>
+</children>
+</HBox>
