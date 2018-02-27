@@ -32,7 +32,20 @@ public class MainController {
         for (ApplicationPage p : ApplicationPage.values())
             addTab(p, loggedIn);
         topTabBox.getChildren().add(bottomTabBox);
-        ApplicationPage.values()[0].select();
+        for (int i = 0; i < ApplicationPage.values().length; i++) {
+            if (loggedIn) {
+                if (!ApplicationPage.values()[i].onlyLogin()) {
+                    ApplicationPage.values()[i].select();
+                    return;
+                }
+            } else {
+                if (!ApplicationPage.values()[i].needsLogin()) {
+                    ApplicationPage.values()[i].select();
+                    return;
+                }
+            }
+        }
+
     }
 
     public void addTab(ApplicationPage page, boolean loggedIn) {

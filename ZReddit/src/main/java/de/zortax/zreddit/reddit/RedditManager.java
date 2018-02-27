@@ -1,6 +1,7 @@
 package de.zortax.zreddit.reddit;// Created by leo on 26.02.18
 
 import de.zortax.zreddit.Main;
+import de.zortax.zreddit.events.RedditStateChangedEvent;
 import net.dean.jraw.RedditClient;
 import net.dean.jraw.http.NetworkAdapter;
 import net.dean.jraw.http.OkHttpNetworkAdapter;
@@ -48,8 +49,10 @@ public class RedditManager {
             reddit = accountHelper.switchToUserless();
         else {
             reddit = accountHelper.trySwitchToUser(Main.getConfig().lastAccount);
-            if (reddit == null)
+            if (reddit == null) {
                 reddit = accountHelper.switchToUserless();
+                System.out.println("PENIS");
+            }
             else
                 state = RedditState.CONNECTED;
         }
@@ -67,9 +70,11 @@ public class RedditManager {
     }
 
     public void completeAuth(String finalUrl) {
-        System.out.println(finalUrl);
         reddit = statefulAuthHelper.onUserChallenge(finalUrl);
+        RedditStateChangedEvent event = new RedditStateChangedEvent(state, RedditState.CONNECTED);
         state = RedditState.CONNECTED;
+        Main.getConfig().lastAccount = reddit.me().getUsername();
+        Main.getEventManager().callEvent(event);
         Main.getConfig().save();
     }
 
