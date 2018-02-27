@@ -16,13 +16,20 @@ public class RippleHandler implements EventHandler<MouseEvent> {
     private Duration rippleDuration =  Duration.millis(250);
     private double lastRippleHeight = 0;
     private double lastRippleWidth = 0;
-    private Color rippleColor = new Color(0, 0, 0, 0.11);
+    private Color rippleColor;
     private final SequentialTransition parallelTransition;
     private final Timeline scaleRippleTimeline;
     private Pane box;
+    private double widthFactor;
 
     public RippleHandler(Pane box) {
+        this(box, 0.35, 0.11);
+    }
+
+    public RippleHandler(Pane box, double widthFactor, double opacity) {
         this.box = box;
+        this.widthFactor = widthFactor;
+        rippleColor = new Color(0, 0, 0, opacity);
         circleRipple = new Circle(0.1, rippleColor);
         circleRipple.setOpacity(0.0);
 
@@ -69,7 +76,7 @@ public class RippleHandler implements EventHandler<MouseEvent> {
                 circleRipple.setClip(rippleClip);
             } catch (Exception ignored) {}
 
-            double circleRippleRadius = Math.max(box.getHeight(), box.getWidth()) * 0.35;
+            double circleRippleRadius = Math.max(box.getHeight(), box.getWidth()) * widthFactor;
             final KeyValue keyValue = new KeyValue(circleRipple.radiusProperty(), circleRippleRadius, Interpolator.EASE_OUT);
             final KeyFrame keyFrame = new KeyFrame(rippleDuration, keyValue);
             scaleRippleTimeline.getKeyFrames().clear();

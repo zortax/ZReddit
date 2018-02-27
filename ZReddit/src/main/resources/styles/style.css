@@ -229,3 +229,21 @@
     -fx-cell-hover-color: transparent;
     -fx-text-fill: white;
 }
+
+.link-badge {
+    -fx-background-color: transparent, #376ec6;
+    -fx-background-radius: 4;
+    -fx-text-fill: WHITE;
+}
+
+.reddit-badge {
+    -fx-background-color: transparent, #d3770e;
+    -fx-background-radius: 4;
+    -fx-text-fill: WHITE;
+}
+
+.reddit-badge {
+    -fx-background-color: transparent, #2ba056;
+    -fx-background-radius: 4;
+    -fx-text-fill: WHITE;
+}

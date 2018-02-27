@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<HBox alignment="CENTER_LEFT" prefHeight="50.0" fx:id="box" prefWidth="560.0" styleClass="reddit-post" stylesheets="@../../styles/style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.zortax.zreddit.controller.submission.LinkController">
+   <children>
+      <JFXButton fx:id="button" prefHeight="25.0" prefWidth="525.0" text="https://www.link.de/stuff" textFill="#a8a8a8">
+         <graphic>
+            <Label styleClass="link-badge" text=" Link ">
+               <font>
+                  <Font size="12.0" />
+               </font>
+            </Label>
+         </graphic>
+      </JFXButton>
+   </children>
+</HBox>

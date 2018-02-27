@@ -13,7 +13,7 @@
                <children>
                   <ImageView fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" smooth="false">
                      <image>
-                        <Image url="@../icons/user.png" />
+                        <Image url="@../icons/reddit.png" />
                      </image>
                      <HBox.margin>
                         <Insets />
