@@ -24,7 +24,7 @@ public class FrontPageController {
         ZReddit.getEventManager().addListener(this);
 
         for (Submission submission : ZReddit.getRedditManager().getReddit().frontPage()
-                .limit(80)
+                .limit(30)
                 .sorting(SubredditSort.TOP)
                 .timePeriod(TimePeriod.DAY)
                 .build().next()) {

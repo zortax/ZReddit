@@ -6,7 +6,9 @@ import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
@@ -32,16 +34,27 @@ public class GifController implements SubmissionElement {
 
     @Override
     public void init(Submission submission) {
+
+        String url = submission.getUrl().replace(".gifv", ".gif");
+
+        if (url.startsWith("https://i.redd.it")) {
+            label.setText(" Reddit ");
+            label.getStyleClass().add("reddit-badge");
+        } else if (url.startsWith("https://i.imgur.com")) {
+            label.setText(" Imgur ");
+            label.getStyleClass().add("imgur-badge");
+        }
+
         new Thread(() -> {
-            InputStream is = Utils.loadImage(submission.getUrl());
-            System.out.println(is != null);
+            final InputStream is = Utils.loadImage(url);
             if (is != null) {
-                Platform.runLater(() -> {
-                    //ImageAnimation animation = new AnimatedGif(is, image);
-                    //playButton.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> animation.playFromStart());
-                });
+                Image i = new Image(is);
+                Platform.runLater(() -> image.setImage(i));
             }
-        }).run();
+        }).start();
+
+        this.labelButton.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> Utils.browse(url));
+        System.out.println("Init done!");
     }
 
     @Override

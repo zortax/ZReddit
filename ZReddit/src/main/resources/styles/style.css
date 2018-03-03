@@ -255,6 +255,11 @@
 }
 
 .gif-player {
+    -fx-background-color: rgba(0, 0, 0, 0.2);
+    -fx-background-radius: 4;
+}
+
+.gif-player:hover {
     -fx-background-color: rgba(0, 0, 0, 0.35);
     -fx-background-radius: 4;
 }
@@ -263,6 +268,7 @@
     -jfx-default-thumb: #376ec6;
     -jfx-default-track: #717171;
 }
+
 
 .jfx-slider .track,
 .jfx-slider:vertical .track {

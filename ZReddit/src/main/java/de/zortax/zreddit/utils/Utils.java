@@ -8,11 +8,11 @@ import java.net.URLConnection;
 public class Utils {
 
     public static boolean isImageURL(String url) {
-        return url.toLowerCase().endsWith(".jpg");
+        return url.toLowerCase().endsWith(".jpg") || url.toLowerCase().endsWith(".png");
     }
 
     public static boolean isGifURL(String url) {
-        return url.toLowerCase().endsWith(".gif");
+        return url.toLowerCase().endsWith(".gif") || url.toLowerCase().endsWith(".gifv");
     }
 
     public static boolean isYouTubeURL(String url) {
@@ -23,6 +23,7 @@ public class Utils {
         try {
             URL url = new URL(link);
             URLConnection connection = url.openConnection();
+            connection.setRequestProperty("User-Agent", "Wget/1.13.4 (linux-gnu)");
             return connection.getInputStream();
         } catch (Exception e) {
             //e.printStackTrace();
