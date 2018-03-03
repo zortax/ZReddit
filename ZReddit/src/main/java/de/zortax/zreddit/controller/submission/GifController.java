@@ -1,6 +1,7 @@
 package de.zortax.zreddit.controller.submission;// Created by leo on 03.03.18
 
 import com.jfoenix.controls.JFXButton;
+import de.zortax.zreddit.animations.RippleHandler;
 import de.zortax.zreddit.utils.Utils;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -12,6 +13,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 import net.dean.jraw.models.Submission;
 
 import java.io.InputStream;
@@ -26,10 +28,11 @@ public class GifController implements SubmissionElement {
     @FXML public Slider slider;
     @FXML public JFXButton labelButton;
     @FXML public Label label;
+    @FXML public StackPane playStack;
 
     @FXML
     public void initialize() {
-
+        new RippleHandler(playStack, 0.4, 0.3);
     }
 
     @Override
@@ -54,7 +57,6 @@ public class GifController implements SubmissionElement {
         }).start();
 
         this.labelButton.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> Utils.browse(url));
-        System.out.println("Init done!");
     }
 
     @Override

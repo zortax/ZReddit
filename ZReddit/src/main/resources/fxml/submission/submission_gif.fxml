@@ -25,11 +25,12 @@
             <ImageView fx:id="image" fitHeight="400.0" fitWidth="560.0" pickOnBounds="true" preserveRatio="true" />
             <AnchorPane prefHeight="350.0" prefWidth="560.0">
                <children>
-                  <AnchorPane fx:id="playbackPane" layoutX="10.0" layoutY="354.0" prefHeight="38.0" prefWidth="542.0" styleClass="gif-player" stylesheets="@../../styles/style.css" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+                  <AnchorPane fx:id="playbackPane" layoutX="6.0" layoutY="354.0" prefHeight="18.0" prefWidth="551.0" styleClass="gif-player" stylesheets="@../../styles/style.css" AnchorPane.bottomAnchor="13.0" AnchorPane.leftAnchor="6.0" AnchorPane.rightAnchor="3.0">
                      <children>
-                        <JFXButton fx:id="playButton" layoutX="14.0" layoutY="3.0" prefHeight="32.0" prefWidth="32.0" ripplerFill="#376ec6" text="" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="3.0">
-                           <graphic>
-                              <ImageView fx:id="playButtonImage" fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                        <Slider fx:id="slider" layoutX="38.0" layoutY="5.0" prefHeight="16.0" prefWidth="507.0" styleClass="jfx-slider" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="5.0" />
+                        <StackPane fx:id="playStack" layoutX="14.0" layoutY="54.0" prefHeight="20.0" prefWidth="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="10.0">
+                           <children>
+                              <ImageView fx:id="playButtonImage" fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../../icons/play.png" />
                                  </image>
@@ -37,9 +38,8 @@
                                     <ColorAdjust brightness="0.7" />
                                  </effect>
                               </ImageView>
-                           </graphic>
-                        </JFXButton>
-                        <Slider fx:id="slider" layoutX="52.0" layoutY="12.0" prefHeight="16.0" prefWidth="479.0" styleClass="jfx-slider" AnchorPane.bottomAnchor="12.0" AnchorPane.leftAnchor="55.0" AnchorPane.rightAnchor="10.0" />
+                           </children>
+                        </StackPane>
                      </children></AnchorPane>
                   <JFXButton fx:id="labelButton" AnchorPane.leftAnchor="-40.0" AnchorPane.topAnchor="0.0">
                      <graphic>

@@ -2,9 +2,11 @@ package de.zortax.zreddit.controller;// Created by leo on 25.02.18
 
 import de.zortax.pra.network.event.EventHandler;
 import de.zortax.zreddit.ZReddit;
+import de.zortax.zreddit.events.RedditStateChangedEvent;
 import de.zortax.zreddit.events.TabSelectedEvent;
 import de.zortax.zreddit.events.UIReloadEvent;
 import de.zortax.zreddit.reddit.RedditState;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
@@ -21,7 +23,6 @@ public class MainController {
     @FXML
     public void initialize() {
         ZReddit.getEventManager().addListener(this);
-        reload();
     }
 
     public void reload() {
@@ -72,6 +73,11 @@ public class MainController {
             pagePane.getChildren().clear();
             pagePane.getChildren().add(event.getPagePane());
         }
+    }
+
+    @EventHandler
+    public void onRedditStateChanged(RedditStateChangedEvent event) {
+        Platform.runLater(this::reload);
     }
 
     @EventHandler

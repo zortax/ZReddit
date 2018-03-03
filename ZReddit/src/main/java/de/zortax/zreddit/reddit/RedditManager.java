@@ -41,19 +41,36 @@ public class RedditManager {
 
     public RedditManager() {
         state = RedditState.NOT_CONNECTED;
-        userAgent = new UserAgent("ZReddit", "de.zortax.zreddit", ZReddit.ZREDDIT_VERSION, "Zortax_");
-        networkAdapter = new OkHttpNetworkAdapter(userAgent);
-        credentials = Credentials.installedApp("m8e7-WxZkPBTiQ", "https://zreddit.zortax.de");
-        accountHelper = new AccountHelper(networkAdapter, credentials, ZReddit.getConfig(), UUID.fromString(ZReddit.getConfig().deviceID));
-        if (ZReddit.getConfig().accounts.isEmpty() || !ZReddit.getConfig().accounts.containsKey(ZReddit.getConfig().lastAccount))
-            reddit = accountHelper.switchToUserless();
-        else {
-            reddit = accountHelper.trySwitchToUser(ZReddit.getConfig().lastAccount);
-            if (reddit == null)
+    }
+
+    public void connect() {
+        new Thread(() -> {
+            userAgent = new UserAgent("ZReddit", "de.zortax.zreddit", ZReddit.ZREDDIT_VERSION, "Zortax_");
+            networkAdapter = new OkHttpNetworkAdapter(userAgent);
+            credentials = Credentials.installedApp("m8e7-WxZkPBTiQ", "https://zreddit.zortax.de");
+            accountHelper = new AccountHelper(networkAdapter, credentials, ZReddit.getConfig(), UUID.fromString(ZReddit.getConfig().deviceID));
+            if (ZReddit.getConfig().accounts.isEmpty() || !ZReddit.getConfig().accounts.containsKey(ZReddit.getConfig().lastAccount)) {
                 reddit = accountHelper.switchToUserless();
-            else
-                state = RedditState.CONNECTED;
-        }
+                RedditStateChangedEvent event = new RedditStateChangedEvent(RedditState.NOT_CONNECTED, RedditState.CONNECTED_NO_AUTH);
+                state = RedditState.CONNECTED_NO_AUTH;
+                ZReddit.getEventManager().callEvent(event);
+            } else {
+                ZReddit.getLogger().info("Trying to log into \"" + ZReddit.getConfig().lastAccount + "\"!");
+                reddit = accountHelper.trySwitchToUser(ZReddit.getConfig().lastAccount);
+                if (reddit == null) {
+                    ZReddit.getLogger().info("Failed! Switching to userless mode...");
+                    reddit = accountHelper.switchToUserless();
+                    RedditStateChangedEvent event = new RedditStateChangedEvent(RedditState.NOT_CONNECTED, RedditState.CONNECTED_NO_AUTH);
+                    state = RedditState.CONNECTED_NO_AUTH;
+                    ZReddit.getEventManager().callEvent(event);
+                } else {
+                    ZReddit.getLogger().info("Success! Calling event listeners...");
+                    RedditStateChangedEvent event = new RedditStateChangedEvent(RedditState.NOT_CONNECTED, RedditState.CONNECTED);
+                    state = RedditState.CONNECTED;
+                    ZReddit.getEventManager().callEvent(event);
+                }
+            }
+        }).start();
     }
 
     public String authenticateUser() {

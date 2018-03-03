@@ -48,6 +48,8 @@ public class ZReddit extends Application {
         primaryStage.setScene(new Scene(root, 1100, 700));
         primaryStage.show();
 
+        redditManager.connect();
+
     }
 
     public static Logger getLogger() {
