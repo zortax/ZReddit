@@ -15,7 +15,7 @@ import javafx.stage.Stage;
 import java.util.logging.LogManager;
 import java.util.logging.Logger;
 
-public class Main extends Application {
+public class ZReddit extends Application {
 
     public static final String ZREDDIT_VERSION = "v1.0-SNAPSHOT";
 

@@ -1,6 +1,5 @@
 package de.zortax.zreddit.controller.submission;// Created by leo on 25.02.18
 
-import de.zortax.zreddit.Main;
 import de.zortax.zreddit.animations.RippleHandler;
 import de.zortax.zreddit.utils.ImageUtils;
 import javafx.fxml.FXML;

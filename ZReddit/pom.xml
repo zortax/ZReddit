@@ -24,7 +24,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>de.zortax.zreddit.Main</mainClass>
+                            <mainClass>de.zortax.zreddit.ZReddit</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>
@@ -104,7 +104,7 @@
         <dependency>
             <groupId>com.github.mattbdean</groupId>
             <artifactId>JRAW</artifactId>
-            <version>2aa33f4d83</version>
+            <version>dbbe31999f</version>
         </dependency>
 
         <dependency>

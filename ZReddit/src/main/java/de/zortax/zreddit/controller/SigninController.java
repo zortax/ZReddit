@@ -2,7 +2,7 @@ package de.zortax.zreddit.controller;// Created by leo on 25.02.18
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXSpinner;
-import de.zortax.zreddit.Main;
+import de.zortax.zreddit.ZReddit;
 import de.zortax.zreddit.events.UIReloadEvent;
 import de.zortax.zreddit.reddit.RedditState;
 import javafx.fxml.FXML;
@@ -27,16 +27,16 @@ public class SigninController {
 
     @FXML
     public void initialize() {
-        title.setText(Main.getMessage("zreddit.ui.signin.title"));
-        prompt.setText(Main.getMessage("zreddit.ui.signin.need_authentication"));
-        reloadButton.setText(Main.getMessage("zreddit.ui.signin.reload"));
+        title.setText(ZReddit.getMessage("zreddit.ui.signin.title"));
+        prompt.setText(ZReddit.getMessage("zreddit.ui.signin.need_authentication"));
+        reloadButton.setText(ZReddit.getMessage("zreddit.ui.signin.reload"));
 
         webEngine = webView.getEngine();
-        reloadButton.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> webEngine.load(Main.getRedditManager().authenticateUser()));
-        webEngine.load(Main.getRedditManager().authenticateUser());
+        reloadButton.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> webEngine.load(ZReddit.getRedditManager().authenticateUser()));
+        webEngine.load(ZReddit.getRedditManager().authenticateUser());
         webEngine.getLoadWorker().stateProperty().addListener((observable, oldValue, newValue) -> {
             String url = webEngine.getLocation();
-            if (Main.getRedditManager().isFinalUrl(url) && url != null) {
+            if (ZReddit.getRedditManager().isFinalUrl(url) && url != null) {
                 anchorPane.getChildren().remove(webView);
                 box = new HBox();
                 box.setAlignment(Pos.CENTER);
@@ -47,13 +47,13 @@ public class SigninController {
                 box.getChildren().add(new JFXSpinner());
                 anchorPane.getChildren().add(box);
                 try {
-                    Main.getRedditManager().completeAuth(url);
+                    ZReddit.getRedditManager().completeAuth(url);
                 } catch (Exception e) {
                     e.printStackTrace();
-                    Main.getRedditManager().completeAuth(url);
+                    ZReddit.getRedditManager().completeAuth(url);
                 }
-                if (Main.getRedditManager().getState() == RedditState.CONNECTED)
-                    Main.getEventManager().callEvent(new UIReloadEvent());
+                if (ZReddit.getRedditManager().getState() == RedditState.CONNECTED)
+                    ZReddit.getEventManager().callEvent(new UIReloadEvent());
             }
         });
     }
@@ -61,7 +61,7 @@ public class SigninController {
     public void reset() {
         anchorPane.getChildren().remove(box);
         anchorPane.getChildren().add(webView);
-        webEngine.load(Main.getRedditManager().authenticateUser());
+        webEngine.load(ZReddit.getRedditManager().authenticateUser());
     }
 
 }

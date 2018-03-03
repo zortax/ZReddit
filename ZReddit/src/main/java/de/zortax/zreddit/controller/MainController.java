@@ -1,7 +1,7 @@
 package de.zortax.zreddit.controller;// Created by leo on 25.02.18
 
 import de.zortax.pra.network.event.EventHandler;
-import de.zortax.zreddit.Main;
+import de.zortax.zreddit.ZReddit;
 import de.zortax.zreddit.events.TabSelectedEvent;
 import de.zortax.zreddit.events.UIReloadEvent;
 import de.zortax.zreddit.reddit.RedditState;
@@ -20,7 +20,7 @@ public class MainController {
 
     @FXML
     public void initialize() {
-        Main.getEventManager().addListener(this);
+        ZReddit.getEventManager().addListener(this);
         reload();
     }
 
@@ -28,7 +28,7 @@ public class MainController {
         topTabBox.getChildren().clear();
         bottomTabBox.getChildren().clear();
         topTabBox.getChildren().add(image);
-        boolean loggedIn = Main.getRedditManager().getState() == RedditState.CONNECTED;
+        boolean loggedIn = ZReddit.getRedditManager().getState() == RedditState.CONNECTED;
         for (ApplicationPage p : ApplicationPage.values())
             addTab(p, loggedIn);
         topTabBox.getChildren().add(bottomTabBox);

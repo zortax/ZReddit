@@ -1,6 +1,6 @@
 package de.zortax.zreddit.controller;// Created by leo on 25.02.18
 
-import de.zortax.zreddit.Main;
+import de.zortax.zreddit.ZReddit;
 import de.zortax.zreddit.controller.submission.SubmissionController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,7 +17,7 @@ public class FrontPageController {
     @FXML
     public void initialize() {
 
-        for (Submission submission : Main.getRedditManager().getReddit().frontPage()
+        for (Submission submission : ZReddit.getRedditManager().getReddit().frontPage()
                 .limit(30)
                 .sorting(SubredditSort.TOP)
                 .timePeriod(TimePeriod.DAY)
@@ -25,7 +25,7 @@ public class FrontPageController {
 
             try {
 
-                FXMLLoader loader = new FXMLLoader(Main.class.getResource("/fxml/submission/submission.fxml"));
+                FXMLLoader loader = new FXMLLoader(ZReddit.class.getResource("/fxml/submission/submission.fxml"));
                 AnchorPane submissionPane = loader.load();
                 SubmissionController controller = loader.getController();
                 controller.init(submission);

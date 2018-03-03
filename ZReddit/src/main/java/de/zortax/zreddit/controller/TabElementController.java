@@ -1,6 +1,6 @@
 package de.zortax.zreddit.controller;// Created by leo on 26.02.18
 
-import de.zortax.zreddit.Main;
+import de.zortax.zreddit.ZReddit;
 import de.zortax.zreddit.animations.RippleHandler;
 import javafx.fxml.FXML;
 import javafx.scene.image.Image;
@@ -20,7 +20,7 @@ public class TabElementController {
     }
 
     public void setImage(String url) {
-        image.setImage(new Image(Main.class.getResourceAsStream(url)));
+        image.setImage(new Image(ZReddit.class.getResourceAsStream(url)));
     }
 
     public RippleHandler getRippleHandler() {

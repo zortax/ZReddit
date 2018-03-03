@@ -1,6 +1,6 @@
 package de.zortax.zreddit.controller;// Created by leo on 26.02.18
 
-import de.zortax.zreddit.Main;
+import de.zortax.zreddit.ZReddit;
 import de.zortax.zreddit.events.TabClickedEvent;
 import de.zortax.zreddit.events.TabSelectedEvent;
 import javafx.fxml.FXMLLoader;
@@ -41,7 +41,7 @@ public enum ApplicationPage {
         this.onlyLogin = onlyLogin;
 
         try {
-            FXMLLoader elementLoader = new FXMLLoader(Main.class.getResource("/fxml/tab_element.fxml"));
+            FXMLLoader elementLoader = new FXMLLoader(ZReddit.class.getResource("/fxml/tab_element.fxml"));
             this.tabElement = elementLoader.load();
             this.elementController = elementLoader.getController();
             this.elementController.setImage("/icons/" + this.icon);
@@ -56,13 +56,13 @@ public enum ApplicationPage {
 
             this.tabElement.addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
                 TabClickedEvent event = new TabClickedEvent(ApplicationPage.this);
-                Main.getEventManager().callEvent(event);
+                ZReddit.getEventManager().callEvent(event);
                 if (!event.isCancelled())
                     select();
             });
 
         } catch (Exception e) {
-            Main.getLogger().warning(e.getMessage());
+            ZReddit.getLogger().warning(e.getMessage());
             e.printStackTrace();
         }
 
@@ -77,7 +77,7 @@ public enum ApplicationPage {
         if (isSelected())
             return;
         TabSelectedEvent event = new TabSelectedEvent(this);
-        Main.getEventManager().callEvent(event);
+        ZReddit.getEventManager().callEvent(event);
         if (!event.isCancelled()) {
             this.isSelected = true;
             this.tabElement.getStyleClass().add("selected-buttons");
@@ -96,11 +96,11 @@ public enum ApplicationPage {
     }
 
     public URL getFxmlURL() {
-        return Main.class.getResource("/fxml/" + fxml);
+        return ZReddit.class.getResource("/fxml/" + fxml);
     }
 
     public URL getImageURL() {
-        return Main.class.getResource("/icons/" + icon);
+        return ZReddit.class.getResource("/icons/" + icon);
     }
 
     public boolean needsLogin() {

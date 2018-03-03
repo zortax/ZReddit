@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
 <?import com.jfoenix.controls.JFXSpinner?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
+
 <HBox fx:id="box" alignment="CENTER" prefHeight="400.0" prefWidth="560.0" styleClass="reddit-post" stylesheets="@../../styles/style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.zortax.zreddit.controller.submission.ImageController">
    <children>
       <StackPane>
@@ -17,10 +23,15 @@
             <ImageView fx:id="image" fitHeight="400.0" fitWidth="560.0" pickOnBounds="true" preserveRatio="true" />
             <AnchorPane prefHeight="350.0" prefWidth="560.0">
                <children>
-                  <Label fx:id="label" text=" Label " AnchorPane.leftAnchor="-40.0" AnchorPane.topAnchor="10.0">
-                     <font>
-                        <Font size="10.0" />
-                     </font></Label>
+                  <JFXButton AnchorPane.leftAnchor="-40.0" AnchorPane.topAnchor="0.0">
+                     <graphic>
+                        <Label fx:id="label" text=" Label ">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
+                     </graphic>
+                  </JFXButton>
                </children>
             </AnchorPane>
          </children>

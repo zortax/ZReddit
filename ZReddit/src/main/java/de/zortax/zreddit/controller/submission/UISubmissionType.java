@@ -1,6 +1,6 @@
 package de.zortax.zreddit.controller.submission;// Created by leo on 27.02.18
 
-import de.zortax.zreddit.Main;
+import de.zortax.zreddit.ZReddit;
 import javafx.fxml.FXMLLoader;
 
 import java.net.URL;
@@ -15,7 +15,7 @@ public enum UISubmissionType {
     private URL fxmlUrl;
 
     UISubmissionType(String fxml) {
-        this.fxmlUrl = Main.class.getResource("/fxml/submission/" + fxml);
+        this.fxmlUrl = ZReddit.class.getResource("/fxml/submission/" + fxml);
     }
 
     public <T>T createInstance() {
