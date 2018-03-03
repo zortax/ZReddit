@@ -24,7 +24,7 @@ public class FrontPageController {
         ZReddit.getEventManager().addListener(this);
 
         for (Submission submission : ZReddit.getRedditManager().getReddit().frontPage()
-                .limit(30)
+                .limit(80)
                 .sorting(SubredditSort.TOP)
                 .timePeriod(TimePeriod.DAY)
                 .build().next()) {
@@ -59,6 +59,8 @@ public class FrontPageController {
                 event.setSubmissionType(UISubmissionType.IMAGE);
             else if (Utils.isYouTubeURL(submission.getUrl()))
                 event.setSubmissionType(UISubmissionType.YOUTUBE);
+            else if (Utils.isGifURL(submission.getUrl()))
+                event.setSubmissionType(UISubmissionType.GIF);
             else
                 event.setSubmissionType(UISubmissionType.LINK);
         }

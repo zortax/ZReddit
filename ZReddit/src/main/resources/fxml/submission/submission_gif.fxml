@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXSpinner?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<HBox fx:id="box" alignment="CENTER" prefHeight="400.0" prefWidth="560.0" styleClass="reddit-post" stylesheets="@../../styles/style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.zortax.zreddit.controller.submission.GifController">
+   <children>
+      <StackPane>
+         <children>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <JFXSpinner />
+               </children>
+            </HBox>
+            <ImageView fx:id="image" fitHeight="400.0" fitWidth="560.0" pickOnBounds="true" preserveRatio="true" />
+            <AnchorPane prefHeight="350.0" prefWidth="560.0">
+               <children>
+                  <AnchorPane fx:id="playbackPane" layoutX="10.0" layoutY="354.0" prefHeight="38.0" prefWidth="542.0" styleClass="gif-player" stylesheets="@../../styles/style.css" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+                     <children>
+                        <JFXButton fx:id="playButton" layoutX="14.0" layoutY="3.0" prefHeight="32.0" prefWidth="32.0" ripplerFill="#376ec6" text="" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="3.0">
+                           <graphic>
+                              <ImageView fx:id="playButtonImage" fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../icons/play.png" />
+                                 </image>
+                                 <effect>
+                                    <ColorAdjust brightness="0.7" />
+                                 </effect>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <Slider fx:id="slider" layoutX="52.0" layoutY="12.0" prefHeight="16.0" prefWidth="479.0" styleClass="jfx-slider" AnchorPane.bottomAnchor="12.0" AnchorPane.leftAnchor="55.0" AnchorPane.rightAnchor="10.0" />
+                     </children></AnchorPane>
+                  <JFXButton fx:id="labelButton" AnchorPane.leftAnchor="-40.0" AnchorPane.topAnchor="0.0">
+                     <graphic>
+                        <Label fx:id="label" text=" Label ">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
+                     </graphic>
+                  </JFXButton>
+               </children>
+            </AnchorPane>
+         </children>
+      </StackPane>
+   </children>
+</HBox>

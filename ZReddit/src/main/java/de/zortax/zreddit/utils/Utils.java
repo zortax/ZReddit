@@ -11,6 +11,10 @@ public class Utils {
         return url.toLowerCase().endsWith(".jpg");
     }
 
+    public static boolean isGifURL(String url) {
+        return url.toLowerCase().endsWith(".gif");
+    }
+
     public static boolean isYouTubeURL(String url) {
         return url.contains("youtube.com") || url.contains("youtu.be");
     }
@@ -21,7 +25,7 @@ public class Utils {
             URLConnection connection = url.openConnection();
             return connection.getInputStream();
         } catch (Exception e) {
-            e.printStackTrace();
+            //e.printStackTrace();
             return null;
         }
     }

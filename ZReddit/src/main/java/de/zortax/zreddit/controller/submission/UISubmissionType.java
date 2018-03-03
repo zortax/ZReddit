@@ -11,6 +11,7 @@ public class UISubmissionType {
     public static final UISubmissionType LINK = new UISubmissionType("submission_link.fxml");
     public static final UISubmissionType CITATION = new UISubmissionType("submission_citated_text.fxml");
     public static final UISubmissionType IMAGE = new UISubmissionType("submission_image.fxml");
+    public static final UISubmissionType GIF = new UISubmissionType("submission_gif.fxml");
     public static final UISubmissionType YOUTUBE = new UISubmissionType("submission_youtube.fxml");
 
     private URL fxmlUrl;
