@@ -6,6 +6,6 @@ import net.dean.jraw.models.Submission;
 public interface SubmissionElement {
 
     void init(Submission submission);
-    Pane getBox();
+    Pane getPane();
 
 }

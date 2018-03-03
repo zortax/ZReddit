@@ -5,17 +5,22 @@ import javafx.fxml.FXMLLoader;
 
 import java.net.URL;
 
-public enum UISubmissionType {
+public class UISubmissionType {
 
-    EMPTY(null),
-    LINK("submission_link.fxml"),
-    CITATION("submission_citated_text.fxml"),
-    IMAGE("submission_image.fxml");
+    public static final UISubmissionType EMPTY = new UISubmissionType("");
+    public static final UISubmissionType LINK = new UISubmissionType("submission_link.fxml");
+    public static final UISubmissionType CITATION = new UISubmissionType("submission_citated_text.fxml");
+    public static final UISubmissionType IMAGE = new UISubmissionType("submission_image.fxml");
+    public static final UISubmissionType YOUTUBE = new UISubmissionType("submission_youtube.fxml");
 
     private URL fxmlUrl;
 
-    UISubmissionType(String fxml) {
+    public UISubmissionType(String fxml) {
         this.fxmlUrl = ZReddit.class.getResource("/fxml/submission/" + fxml);
+    }
+
+    public UISubmissionType(URL fxmlUrl) {
+        this.fxmlUrl = fxmlUrl;
     }
 
     public <T>T createInstance() {

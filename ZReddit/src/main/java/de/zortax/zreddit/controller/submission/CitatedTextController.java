@@ -22,7 +22,7 @@ public class CitatedTextController implements SubmissionElement {
     }
 
     @Override
-    public Pane getBox() {
+    public Pane getPane() {
         return box;
     }
 

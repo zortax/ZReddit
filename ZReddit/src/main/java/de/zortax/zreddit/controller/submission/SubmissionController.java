@@ -1,7 +1,8 @@
 package de.zortax.zreddit.controller.submission;// Created by leo on 25.02.18
 
+import de.zortax.zreddit.ZReddit;
 import de.zortax.zreddit.animations.RippleHandler;
-import de.zortax.zreddit.utils.ImageUtils;
+import de.zortax.zreddit.events.SubmissionWrappingEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
@@ -31,7 +32,7 @@ public class SubmissionController {
 
     @FXML
     public void initialize() {
-        
+
     }
 
     public void init(Submission submission) {
@@ -47,24 +48,16 @@ public class SubmissionController {
         new RippleHandler(commentsStack, 0.25, 0.4);
         new RippleHandler(optionsStack, 0.25, 0.4);
 
-        UISubmissionType type;
-        if (submission.isSelfPost()) {
-            if (submission.getSelfText().isEmpty())
-                type = UISubmissionType.EMPTY;
-            else
-                type = UISubmissionType.CITATION;
-        } else {
-            if (ImageUtils.isImageURL(submission.getUrl()))
-                type = UISubmissionType.IMAGE;
-            else
-                type = UISubmissionType.LINK;
-        }
+        SubmissionWrappingEvent event = new SubmissionWrappingEvent(submission);
+        ZReddit.getEventManager().callEvent(event);
+        UISubmissionType type = event.getSubmissionType();
 
-        if (type != UISubmissionType.EMPTY) {
+        if (!type.equals(UISubmissionType.EMPTY)) {
             SubmissionElement element = type.createInstance();
             element.init(submission);
-            placeholderBox.getChildren().add(element.getBox());
+            placeholderBox.getChildren().add(element.getPane());
         }
+
     }
 
 }

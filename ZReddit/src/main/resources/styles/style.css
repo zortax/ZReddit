@@ -195,7 +195,7 @@
     -fx-background-color: transparent;
     /*-fx-background-color: derive(#434343,70%);*/
     -fx-opacity: 1;
-    -fx-border-color:derive(gray,80%);
+    -fx-border-color: transparent;
     -fx-background-radius: 0em;
 
 }
@@ -244,6 +244,12 @@
 
 .imgur-badge {
     -fx-background-color: transparent, #2ba056;
+    -fx-background-radius: 4;
+    -fx-text-fill: WHITE;
+}
+
+.youtube-badge {
+    -fx-background-color: transparent, #ce403c;
     -fx-background-radius: 4;
     -fx-text-fill: WHITE;
 }

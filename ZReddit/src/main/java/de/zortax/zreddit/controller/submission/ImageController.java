@@ -1,11 +1,13 @@
 package de.zortax.zreddit.controller.submission;// Created by leo on 27.02.18
 
-import de.zortax.zreddit.utils.ImageUtils;
+import com.jfoenix.controls.JFXButton;
+import de.zortax.zreddit.utils.Utils;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import net.dean.jraw.models.Submission;
@@ -17,6 +19,7 @@ public class ImageController implements SubmissionElement {
     @FXML public HBox box;
     @FXML public ImageView image;
     @FXML public Label label;
+    @FXML public JFXButton labelButton;
 
     @FXML
     public void initialize() {
@@ -37,7 +40,7 @@ public class ImageController implements SubmissionElement {
         }
 
         new Thread(() -> {
-            InputStream is = ImageUtils.loadImage(submission.getUrl());
+            InputStream is = Utils.loadImage(submission.getUrl());
             final Image image = is != null ? new Image(is) : null;
             Platform.runLater(() -> {
                 if (image != null)
@@ -45,10 +48,12 @@ public class ImageController implements SubmissionElement {
             });
         }).start();
 
+        this.labelButton.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> Utils.browse(url));
+
     }
 
     @Override
-    public Pane getBox() {
+    public Pane getPane() {
         return box;
     }
 }

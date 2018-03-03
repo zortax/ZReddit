@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.web.*?>
 <?import com.jfoenix.controls.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
@@ -11,16 +12,10 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
 
-<HBox fx:id="box" alignment="CENTER" prefHeight="400.0" prefWidth="560.0" styleClass="reddit-post" stylesheets="@../../styles/style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.zortax.zreddit.controller.submission.ImageController">
+<HBox fx:id="box" alignment="CENTER" prefHeight="380.0" prefWidth="560.0" styleClass="reddit-post" stylesheets="@../../styles/style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.zortax.zreddit.controller.submission.YouTubeController">
    <children>
       <StackPane>
          <children>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-               <children>
-                  <JFXSpinner />
-               </children>
-            </HBox>
-            <ImageView fx:id="image" fitHeight="400.0" fitWidth="560.0" pickOnBounds="true" preserveRatio="true" />
             <AnchorPane prefHeight="350.0" prefWidth="560.0">
                <children>
                   <JFXButton fx:id="labelButton" AnchorPane.leftAnchor="-40.0" AnchorPane.topAnchor="0.0">
@@ -32,6 +27,7 @@
                         </Label>
                      </graphic>
                   </JFXButton>
+                  <WebView fx:id="webView" layoutY="25.0" prefHeight="354.0" prefWidth="560.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="26.0" />
                </children>
             </AnchorPane>
          </children>
