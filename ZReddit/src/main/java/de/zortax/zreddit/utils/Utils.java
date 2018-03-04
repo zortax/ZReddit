@@ -31,6 +31,20 @@ public class Utils {
         }
     }
 
+    public static String formatInt(int i) {
+        if (i >= 1000000) {
+            double f = (double) i / 100000D;
+            double f2 = Math.round(f) / 10D;
+            return String.valueOf(f2) + "M";
+        } else if (i >= 1000)  {
+            double f = (double) i / 100D;
+            double f2 = Math.round(f) / 10D;
+            return String.valueOf(f2) + "K";
+        } else
+            return String.valueOf(i);
+
+    }
+
     public static void browse(String url) {
         OSType os = getOSType();
         if (os == OSType.WINDOWS) {

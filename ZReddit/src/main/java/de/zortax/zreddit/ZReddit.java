@@ -46,6 +46,10 @@ public class ZReddit extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/main_window.fxml"));
         primaryStage.setTitle("ZReddit - v1.0-SNAPSHOT");
         primaryStage.setScene(new Scene(root, 1100, 700));
+        primaryStage.setOnCloseRequest(event -> {
+            config.save();
+            System.exit(0);
+        });
         primaryStage.show();
 
         redditManager.connect();

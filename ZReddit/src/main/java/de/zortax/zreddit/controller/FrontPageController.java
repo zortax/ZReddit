@@ -35,7 +35,7 @@ public class FrontPageController {
         JFXSpinner spinner = new JFXSpinner();
         spinner.setRadius(10);
         box.getChildren().add(spinner);
-        load();
+        Platform.runLater(this::load);
     }
 
     public void load() {

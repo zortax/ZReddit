@@ -3,6 +3,7 @@ package de.zortax.zreddit.controller.submission;// Created by leo on 25.02.18
 import de.zortax.zreddit.ZReddit;
 import de.zortax.zreddit.animations.RippleHandler;
 import de.zortax.zreddit.events.SubmissionWrappingEvent;
+import de.zortax.zreddit.utils.Utils;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
@@ -40,8 +41,8 @@ public class SubmissionController {
         this.postTitle.setText(submission.getTitle());
         this.userLink.setText("/u/" + submission.getAuthor());
         this.subredditLink.setText("/r/" + submission.getSubreddit());
-        this.points.setText(String.valueOf(submission.getScore()));
-        this.commentCount.setText(String.valueOf(submission.getCommentCount()));
+        this.points.setText(Utils.formatInt(submission.getScore()));
+        this.commentCount.setText(Utils.formatInt(submission.getCommentCount()));
 
         new RippleHandler(upvoteStack, 0.25, 0.4);
         new RippleHandler(downvoteStack, 0.25, 0.4);
