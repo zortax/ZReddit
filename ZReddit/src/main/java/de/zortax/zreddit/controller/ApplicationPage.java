@@ -14,6 +14,9 @@ public enum ApplicationPage {
 
     SIGNIN("signin_page.fxml", "signin.png", false, true, false),
     FRONT_PAGE("front_page.fxml", "home.png", false),
+    GOTO("goto_page.fxml", "goto.png", true, false, false),
+    SEARCH("search_page.fxml", "search.png", true, false, false),
+    INBOX("inbox_page.fxml", "inbox.png", true, false, false),
     SETTINGS("settings_page.fxml", "settings.png", false, false, true);
 
     public static ApplicationPage currentlySelected = null;
